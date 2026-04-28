@@ -27,7 +27,7 @@ The system supports PDF, DOCX, PPTX, CSV, XLSX, Markdown, and TXT files, with ea
 
 ## Choose How to Run
 1. [Live Demo](#live-demo)
-2. [On Local Machine](#running-on-local-machine)
+2. [Run Locally](#running-locally)
 
 ---
 
@@ -42,77 +42,82 @@ Visit the deployed app at [rag-multiformat-document-search.vercel.app](https://r
 
 ---
 
-## Running on Local Machine
+## Running Locally
 
-Prerequisites:
-- Python 3.10+ installed
-- Node.js 18+ installed
-- Redis running locally or a Redis URL
-- Qdrant instance (cloud or local)
+### Prerequisites
+- Python 3.10+
+- Node.js 18+
+- A running Redis instance ([Upstash](https://upstash.com) works well for free)
+- A Qdrant instance ([Qdrant Cloud](https://cloud.qdrant.io) has a free tier)
+- PostgreSQL database ([Neon](https://neon.tech) has a free tier)
 - OpenAI API key
 - AWS S3 bucket
 
-### Instructions:
+### Instructions
 
-1. **Clone the Repository:**
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/poornimagodavarthy/RAG-Multiformat-Document-Search.git
-   ```
-
-2. **Navigate to the Cloned Directory:**
-   ```bash
    cd RAG-Multiformat-Document-Search
    ```
 
-3. **Set Up Environment Variables:**
-   - Create a `.env` file in the root directory:
+2. **Set up environment variables:**
+
+   Create a `.env` file in the root directory:
    ```
    OPENAI_API_KEY=your_key
    QDRANT_URL=your_qdrant_url
    VECTORDB_KEY=your_qdrant_api_key
+   QDRANT_COLLECTION_NAME=knowledge_base
    DATABASE_URL=your_postgres_url
    REDIS_URL=your_redis_url
    AWS_ACCESS_KEY_ID=your_aws_key
    AWS_SECRET_ACCESS_KEY=your_aws_secret
    S3_BUCKET=your_bucket_name
+   S3_REGION=us-east-2
+   DB_KEY=your_client_id
    ```
 
-4. **Set Up Virtual Environment (Recommended):**
-   - On macOS/Linux:
-     ```bash
-     python3 -m venv venv
-     source venv/bin/activate
-     ```
-   - On Windows:
-     ```bash
-     python -m venv venv
-     .\venv\Scripts\activate
-     ```
+3. **Set up a virtual environment:**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate        # macOS/Linux
+   .\venv\Scripts\activate         # Windows
+   ```
 
-5. **Install Backend Dependencies:**
+4. **Install backend dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-6. **Start the Backend:**
+5. **Start the backend:**
    ```bash
-   uvicorn api.server:app --reload
+   uvicorn api.server:app
    ```
 
-7. **Start the Worker (separate terminal):**
+6. **Start the worker** (separate terminal, same venv):
    ```bash
    python worker.py
    ```
 
-8. **Install and Start the Frontend:**
+7. **Install and start the frontend:**
    ```bash
    cd frontend
    npm install
    npm run dev
    ```
 
-9. **Open the App:**
-   - Navigate to `http://localhost:5173`
+8. Open `http://localhost:5173`
+
+---
+
+## Deployment
+
+The app is deployed using:
+- **Frontend** → [Vercel](https://vercel.com) (set root directory to `frontend`)
+- **Backend + Worker** → [Fly.io](https://fly.io) (Dockerfile included)
+
+For your own deployment, set all environment variables in your Vercel and Fly.io dashboards. The worker needs to run as a separate process alongside the backend on Fly.io.
 
 ---
 
