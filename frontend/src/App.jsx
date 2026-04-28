@@ -241,13 +241,8 @@ setResults({
           <h1 className="text-2xl font-serif text-neutral-900 mb-1">RAG Search Engine</h1>
           <p className="text-sm text-neutral-500 mb-6">Multiformat Document Intelligence</p>
           <p className="text-neutral-600 mb-6">
-            Hi! Thanks for checking out my demo project. This is a multi format semantic search system 
-            that lets you upload any document and ask questions - powered by RAG with OpenAI vector embeddings.
+            Hi, thanks for checking out my project!
           </p>
-          <div className="text-left bg-neutral-50 rounded-lg p-4 mb-6">
-            <p className="text-xs font-medium text-neutral-500 uppercase tracking-widest mb-2">Stack</p>
-            <p className="text-sm text-neutral-600">FastAPI · Qdrant · OpenAI Embeddings · Redis · AWS S3 · React</p>
-          </div>
           <button
             onClick={() => setShowLanding(false)}
             className="w-full bg-red-900 text-white py-3 rounded-lg hover:bg-red-950 transition-colors font-medium"
