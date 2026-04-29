@@ -7,22 +7,22 @@ The system supports PDF, DOCX, PPTX, CSV, XLSX, Markdown, and TXT files, with ea
 
 ### Semantic search with grounded answers
 <p align="center">
-  <img src="screenshots/Answer.jpg" width="70%">
+  <img src="screenshots/Answer.jpg" width="83%">
 </p>
 
 ### Source citations with page references
 <p align="center">
-  <img src="screenshots/Source.jpg" width="70%">
+  <img src="screenshots/Source.jpg" width="83%">
 </p>
 
 ### Document library across multiple formats
 <p align="center">
-  <img src="screenshots/Documents.jpg" width="70%">
+  <img src="screenshots/Documents.jpg" width="83%">
 </p>
 
 ### Async document upload and processing
 <p align="center">
-  <img src="screenshots/Upload.jpg" width="70%">
+  <img src="screenshots/Upload.jpg" width="83%">
 </p>
 
 ---
