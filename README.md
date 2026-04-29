@@ -5,7 +5,16 @@ A semantic search system that lets you upload documents in any format and ask qu
 
 The system supports PDF, DOCX, PPTX, CSV, XLSX, Markdown, and TXT files, with each format handled by a dedicated parser. An async Redis queue processes uploads in the background so the UI stays responsive.
 
-**Live demo:** [rag-multiformat-document-search.vercel.app](https://rag-multiformat-document-search.vercel.app)
+## Demo
+
+### Search
+![Search](screenshots/Answer.jpg)
+
+### Document Library
+![Documents](screenshots/Documents.jpg)
+
+### Upload
+![Upload](screenshots/Upload.jpg)
 
 ---
 
