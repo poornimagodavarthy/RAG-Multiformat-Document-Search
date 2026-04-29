@@ -6,17 +6,26 @@ A semantic search system that lets you upload documents in any format and ask qu
 
 The system supports PDF, DOCX, PPTX, CSV, XLSX, Markdown, and TXT files, with each format handled by a dedicated parser. An async Redis queue processes uploads in the background so the UI stays responsive.
 
----
-
 ## Demo
 
+### Semantic search with grounded answers
 <p align="center">
-  <img src="screenshots/Answer.jpg" width="49%">
-  <img src="screenshots/Documents.jpg" width="49%">
+  <img src="screenshots/Answer.jpg" width="80%">
 </p>
+
+### Source citations with page references
 <p align="center">
-  <img src="screenshots/Upload.jpg" width="49%">
-  <img src="screenshots/Source.jpg" width="49%">
+  <img src="screenshots/Source.jpg" width="80%">
+</p>
+
+### Document library across multiple formats
+<p align="center">
+  <img src="screenshots/Documents.jpg" width="80%">
+</p>
+
+### Async document upload and processing
+<p align="center">
+  <img src="screenshots/Upload.jpg" width="80%">
 </p>
 
 ---
