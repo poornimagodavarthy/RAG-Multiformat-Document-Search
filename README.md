@@ -1,20 +1,23 @@
 # RAG Multiformat Document Search
+*Built and deployed by Poornima Godavarthy*
 
 ## Description
 A semantic search system that lets you upload documents in any format and ask questions in natural language. Documents are parsed, chunked, and embedded into a vector database. Queries are matched against stored chunks filtered by client, and a grounded answer is generated with source citations and page references.
 
 The system supports PDF, DOCX, PPTX, CSV, XLSX, Markdown, and TXT files, with each format handled by a dedicated parser. An async Redis queue processes uploads in the background so the UI stays responsive.
 
+---
+
 ## Demo
 
-### Search
-![Search](screenshots/Answer.jpg)
-
-### Document Library
-![Documents](screenshots/Documents.jpg)
-
-### Upload
-![Upload](screenshots/Upload.jpg)
+<p align="center">
+  <img src="screenshots/Answer.jpg" width="49%">
+  <img src="screenshots/Documents.jpg" width="49%">
+</p>
+<p align="center">
+  <img src="screenshots/Upload.jpg" width="49%">
+  <img src="screenshots/Source.jpg" width="49%">
+</p>
 
 ---
 
@@ -116,7 +119,7 @@ Visit the deployed app at [rag-multiformat-document-search.vercel.app](https://r
    npm run dev
    ```
 
-8. Open `http://localhost:5173`
+8. Open `http://localhost:PORT`
 
 ---
 
