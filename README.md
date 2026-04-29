@@ -1,7 +1,4 @@
 # RAG Multiformat Document Search
-*Built and deployed by Poornima Godavarthy*
-
-## Description
 A semantic search system that lets you upload documents in any format and ask questions in natural language. Documents are parsed, chunked, and embedded into a vector database. Queries are matched against stored chunks filtered by client, and a grounded answer is generated with source citations and page references.
 
 The system supports PDF, DOCX, PPTX, CSV, XLSX, Markdown, and TXT files, with each format handled by a dedicated parser. An async Redis queue processes uploads in the background so the UI stays responsive.
