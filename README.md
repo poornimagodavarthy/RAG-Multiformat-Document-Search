@@ -10,22 +10,22 @@ The system supports PDF, DOCX, PPTX, CSV, XLSX, Markdown, and TXT files, with ea
 
 ### Semantic search with grounded answers
 <p align="center">
-  <img src="screenshots/Answer.jpg" width="80%">
+  <img src="screenshots/Answer.jpg" width="70%">
 </p>
 
 ### Source citations with page references
 <p align="center">
-  <img src="screenshots/Source.jpg" width="80%">
+  <img src="screenshots/Source.jpg" width="70%">
 </p>
 
 ### Document library across multiple formats
 <p align="center">
-  <img src="screenshots/Documents.jpg" width="80%">
+  <img src="screenshots/Documents.jpg" width="70%">
 </p>
 
 ### Async document upload and processing
 <p align="center">
-  <img src="screenshots/Upload.jpg" width="80%">
+  <img src="screenshots/Upload.jpg" width="70%">
 </p>
 
 ---
@@ -49,17 +49,6 @@ The system supports PDF, DOCX, PPTX, CSV, XLSX, Markdown, and TXT files, with ea
 ## Choose How to Run
 1. [Live Demo](#live-demo)
 2. [Run Locally](#running-locally)
-
----
-
-## Live Demo
-
-Visit the deployed app at [rag-multiformat-document-search.vercel.app](https://rag-multiformat-document-search.vercel.app)
-
-1. Click **Upload** and drop any supported document
-2. Wait for processing (30–60 seconds)
-3. Ask a question in the search bar
-4. View the answer with source citations and page references
 
 ---
 
@@ -143,9 +132,8 @@ For your own deployment, set all environment variables in your Vercel and Fly.io
 ---
 
 ## Architecture
-
-```
-Upload → S3 → Redis queue → Worker → Parser → Chunker → OpenAI embeddings → Qdrant
-                                                                    ↓
-Query → OpenAI embedding → Qdrant retrieval → GPT-4o mini → Answer + sources
-```
+- **Unified markdown conversion**: every format (PDF, DOCX, PPTX, CSV, Excel) gets parsed into markdown or CSV first, so one chunking pipeline handles everything cleanly without format-specific edge cases downstream
+- **Heading-aware chunking**: section headings and page numbers are preserved and prepended to each chunk rather than stripped, so retrieval pulls contextually grounded passages instead of orphaned fragments — makes a real difference on structured documents like research papers
+- **Qdrant for vector search**: payload filtering lets the system scope searches to a specific client's documents at the vector level, keeping multi-tenant data isolated without extra query logic
+- **Redis for async processing**: decouples upload from ingestion so a 30-page PDF chunking in the background never blocks the API response, keeping the UI responsive
+- **PostgreSQL for metadata**: stores document titles, page counts, S3 URLs, and client IDs, serving as the source of truth that the vector DB syncs against on startup
