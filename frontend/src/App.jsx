@@ -17,7 +17,7 @@ const RAGSearch = () => {
   const [showLanding, setShowLanding] = useState(true);
 
 
-  const API_BASE_URL = "https://ragenginebackend.fly.dev";
+  const API_BASE_URL = "https://scarlettenginebackend.fly.dev";
 
   const uploadDocument = async (file) => {
     const formData = new FormData();
